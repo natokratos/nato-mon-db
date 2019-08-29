@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  tivit-mon-db:
+    build:
+        context: .
+        dockerfile: Dockerfile 
+    image: tivit-mon-db:1.0
+    container_name: tivit-mon-db
+    hostname: tivit-mon-db-docker
+    ports:
+    - "9010:9010"
+    - "9020:9020"
+    networks:
+    - tivit-mon-network   
+networks:
+  tivit-mon-network:
+    driver: bridge
